@@ -33,11 +33,11 @@ Hypoxia is a condition in which of low or depleted dissolved oxygen concentratio
 
 Dissolved oxygen (DO) levels below 3.0 mg/L are considered hypoxic in LIS.  Hypoxic conditions cause impairment and, in some cases, death to aquatic life. Some studies have found DO can become limiting below 4.8 mg/L for sensitive fish species, while more tolerant species are not affected until DO falls below 2.0 mg/L (Simpson et. al., 1995, 1996).  
 
-Since 1991, the [Connecticut Department of Energy and Environmental Protection (CT DEEP)](https://portal.ct.gov/DEEP/Water/LIS-Monitoring/LIS-Water-Quality-and-Hypoxia-Monitoring-Program-Overview) and the [Interstate Environmental Commission (IEC)](https://www.iec-nynjct.org/programs/water/sound-monitoring) have conducted an intensive water quality monitoring program on LIS. The program is funded through a grant from the U.S. Environmental Protection Agency's (EPA) [Long Island Sound Study](https://longislandsoundstudy.net/). Data from the surveys are used to quantify and identify annual trends and differences in water quality parameters relevant to hypoxia, in particular nutrients, temperature, and chlorophyll. These data are also used to evaluate the effectiveness of the LIS management programs' efforts to reduce anthropogenic nitrogen inputs, since nitrogen is a primary contributor to the excessive algae growth that leads to hypoxia in LIS. 
+Since 1991, the [Connecticut Department of Energy and Environmental Protection (CT DEEP)](https://portal.ct.gov/DEEP/Water/LIS-Monitoring/LIS-Water-Quality-and-Hypoxia-Monitoring-Program-Overview) and the [Interstate Environmental Commission (IEC)](https://www.iec-nynjct.org/programs/water/sound-monitoring) have conducted an intensive water quality monitoring program on LIS. The program is funded through a grant from the U.S. Environmental Protection Agency's (EPA) [Long Island Sound Study](https://longislandsoundstudy.net/). In 2003, the [Long Island Sound Integrated Coastal Observing System (LISICOS)](https://lisicos.uconn.edu/index.php) consisting of a series of buoys equipped with continuous water quality, current, and meteorological monitoring sensors was deployed across LIS to increase the temporal resolution of collected data. Data from the surveys are used to quantify and identify annual trends and differences in water quality parameters relevant to hypoxia, in particular nutrients, temperature, and chlorophyll. These data are also used to evaluate the effectiveness of the LIS management programs' efforts to reduce anthropogenic nitrogen inputs, since nitrogen is a primary contributor to the excessive algae growth that leads to hypoxia in LIS. 
 
 During the summer (June - September), surveys across LIS (Figure 1) are conducted at bi-weekly intervals to better define the areal extent and duration of hypoxia. During these surveys stations are sampled for in-situ parameters including dissolved oxygen, temperature, pH, and salinity. 
 
-```{r, fig.cap = '<i> Interactive map of LIS survey stations.  Click on each station to find information on sampling index period for that station. </i>'}
+```{r, fig.cap = '<i> Interactive map of LIS survey stations.  Click on each station to find information on sampling index period for that station. UCONN LISICOS Buoy Stations in Norwalk Harbor, Thames River, and the Eastern Sound have been discontinued. </i>'}
 ##install.packages("sf")
 ##install.packages ("geojsonio")
 ##install.packages ("htmltools")
@@ -107,7 +107,7 @@ library (kableExtra)
 dt <- read_excel("data/CruiseInfoTable2024.xlsx")
 
 dt %>%
-  kbl(caption =  "2024 Long Island Sound Hypoxia Season Cruise Information", align = "c", col.names = c("Cruise", "Start Date", "End Date", "Number of Stations Sampled", "Number of Hypoxic Stations", "Hypoxic Area (mi2)", "Minimum DO", "Station Where Minimum DO Occurred")) %>%
+  kbl(caption =  "2024 Long Island Sound Hypoxia Season Cruise Information. NC= Not Calculated", align = "c", col.names = c("Cruise", "Start Date", "End Date", "Number of Stations Sampled", "Number of Hypoxic Stations", "Hypoxic Area (mi2)", "Minimum DO", "Station Where Minimum DO Occurred")) %>%
   kable_classic(full_width = F, html_font = "Cambria") %>%
   scroll_box(height="300px") 
   
@@ -262,7 +262,7 @@ geom_hline(yintercept = -1.5, size=0.1)+
 ```
 <br>
 
-[Drought](https://www.nrcc.cornell.edu/regional/drought/drought.html) and windy conditions have developed across the region this Fall with October being the all-time driest on record for many climate locations across the watershed. Over 200 [wildland fires](https://portal.ct.gov/deep/forestry/forest-fire/fire-danger-weather-and-reporting) were reported in CT between September 1st and November 14th including the Hawthorne Fire on Lamentation Mountain that burned over 100 acres and tragically claimed the life of a Wethersfield firefighter and one at Rocky Neck State Park that burned over 46 acres. Similar conditions were reported on Long Island including a major fire in Baiting Hollow (Riverhead) on 11/9. 
+[Drought](https://www.nrcc.cornell.edu/regional/drought/drought.html) and windy conditions have developed across the region this Fall with October being the all-time driest on record for many climate locations across the watershed. Over 200 [wildland fires](https://portal.ct.gov/deep/forestry/forest-fire/fire-danger-weather-and-reporting) were reported in CT between September 1st and November 14th including the Hawthorne Fire on Lamentation Mountain in Berlin that burned over 100 acres and tragically claimed the life of a Wethersfield firefighter and another fire at Rocky Neck State Park that burned over 46 acres. Similar conditions were reported on Long Island including a major fire in Baiting Hollow (Riverhead) on 11/9. 
 
 Surprisingly, the impacts on hypoxic conditions from the record warmth and precipitation were minimal.
 <brk>
@@ -379,7 +379,7 @@ widget4
 ## **Maximum Hypoxic Area**
 <hr>
 
-CT DEEP utilizes Geographic Information System (GIS) software to create interpolations of bottom water dissolved oxygen concentrations across LIS and estimate the area effected by hypoxia on a cruise by cruise basis. Changes in the maximum hypoxic area over the LISS sampling period of record can be seen in this [video](https://youtu.be/cl7MmCm8Kao?list=PLN8TZ_MzsZN_RhkPBddClSNZz74MDdr2b). 2024 CT DEEP dissolved oxygen maps are available on the [DEEP Monitoring Maps webpage](https://portal.ct.gov/DEEP/Water/LIS-Monitoring/LIS-Water-Quality-Monitoring-Maps). Maps created by the IEC for the far Western Sound 2024 season can be seen in this [video](https://www.iec-nynjct.org/blog/western-long-island-sound-hypoxia-summer-2023-time-lapse-videos). 
+CT DEEP utilizes Geographic Information System (GIS) software to create interpolations of bottom water dissolved oxygen concentrations across LIS and estimate the area effected by hypoxia on a cruise by cruise basis. Changes in the maximum hypoxic area over the LISS sampling period of record can be seen in this [video](https://youtu.be/cl7MmCm8Kao?list=PLN8TZ_MzsZN_RhkPBddClSNZz74MDdr2b). 2024 CT DEEP dissolved oxygen maps are available on the [DEEP Monitoring Maps webpage](https://portal.ct.gov/DEEP/Water/LIS-Monitoring/LIS-Water-Quality-Monitoring-Maps). Maps created by the IEC for the far Western Sound 2024 season can be seen in this [video](https://www.iec-nynjct.org/blog/western-long-island-sound-hypoxia-summer-2024-time-lapse-videos). 
 
 **In 2024, the maximum area of Long Island Sound with bottom water dissolved oxygen (DO) concentrations below 3.0 mg/L was 112.4 sq. mi (43.4 sq. km) and occurred during the WQAUG24 survey conducted 29 July - 1 August 2024** (Figure 3). During this survey three stations had concentrations below 3.0 mg/L,  three stations had concentrations between 3 and 3.5 mg/L, and 27 stations had concentrations between 3.5and 4.8 mg/L. The lowest dissolved oxygen concentration recorded during the survey was 2.25 mg/L at Station A4. This [video](https://portal.ct.gov/-/media/deep/water/lis_water_quality/monitoring/2024/2024-lis-hypoxia-summer-season-updated.mp4?rev=6593dde08a81420fac58e41fd92e8488&hash=54FFB752AE916D05C35832C2A9CE2F27) illustrates the progression of hypoxia over the 2024 season. 
 
@@ -398,7 +398,7 @@ The LISS utilizes a five-year rolling average (Figure 4) to determine progress t
 
 
 <div class = 'iplot'>
-```{r, fig.cap = '<i>This interactive graph shows the maximum area of hypoxia in square miles (blue bars), duration of hypoxic conditions in days (black circles), and the five-year rolling average area in square miles (green line). Area in square miles, Duration in days </i>'}
+```{r, fig.cap = '<i>This interactive graph shows the maximum area of hypoxia in square miles (blue bars), duration of hypoxic conditions in days (black circles), and the five-year rolling average area in square miles (green line). </i>'}
 ##install.packages("png")
 
 library(ggplot2)
