@@ -120,11 +120,11 @@ dt %>%
 The Summer of 2024, defined as the months of June, July, and August, ranked as the hottest on record for Hartford, CT. Air temperatures over the period averaged 75.5ºF which was 3.6 degrees above the normal average of 71.9ºF. 2024 was also among the top ten warmest on record for Bridgeport (CT), Islip (NY), and LaGuardia and Kennedy Airports (NY).  
 <br>
 
-```{r}
+```{r, fig.cap = '<i> 2024 Hartford, CT Air Temperature Departures from Normal. Source: NowData- NOAA Online Weather Data, Daily data for a month https://www.weather.gov/wrh/Climate?wfo=box  </i>'}
 library(ggplot2)
 library(readxl)
 
-df <- read_excel("C:\\R\\Data\\2024_air temp_trends.xlsx")
+df <- read_excel("data/2024_air temp_trends.xlsx")
 
 Month1 <- factor(df$Month, levels = c("JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV"))
 
@@ -192,11 +192,11 @@ geom_hline(yintercept = -1.5, size=0.1)+
 Precipitation across the Long Island Sound region varied over the summer season. In Hartford, June was slightly drier than normal while July and August were wetter than normal. This lead to the summer of 2024 being close to average for Hartford with 12.50 inches of precipitation falling compared to the normal 12.66 inches. Islip also received an average amount of precipitation (11.49 inches in 2024 compared to the average 11.50 inches). Bridgeport, however, received 122% of the normal amount of precipitation (13.55 inches versus 11.07 normally) making 2024 the 14th wettest on record.The majority fell during an [extreme rainfall event](https://www.weather.gov/okx/August18192024_FlashFlooding) that occurred August 18-19, resulting in historic flash flooding. 
 
 
-```{r}
+```{r, fig.cap = '<i> 2024 Hartford, CT precipitation departures from normal. Source: NowData- NOAA Online Weather Data, Daily data for a month https://www.weather.gov/wrh/Climate?wfo=box </i>'}
 library(ggplot2)
 library(readxl)
 
-df <- read_excel("C:\\R\\Data\\2024_precip_trends.xlsx")
+df <- read_excel("data/2024_precip_trends.xlsx")
 
 Month1 <- factor(df$Month, levels = c("JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV"))
 
@@ -270,9 +270,9 @@ geom_hline(yintercept = -1.5, size=0.1)+
 ## **Water Temperature**
 <hr>
 
-Long Island Sound bottom water temperatures have generally been increasing over the 30+ years of the survey. However, in 2024, bottom water temperatures were lower than they have been the past four years.  The interactive graph below shows the yearly average water temperatures at the surface and bottom across Long Island Sound.  
+Long Island Sound Water Temperatures have generally been increasing over the 30+ years of the survey (Howell and Auster, 2012; Rice and Stewart, 2013; O'Donnell, et. al., 2020; and Georgas, et. al., 2016). This year, temperatures were actually lower than they have been the past four years.  The interactive graph below shows the yearly average water temperature across Long Island Sound.  
 
-```{r}
+```{r, fig.cap = '<i> Interactive map of average annual surface and bottom water temperatures measured in Long Island Sound. Scroll over the data points to see values. Use the slider to zoom to a particular time period.  </i>'}
 
 #load packages
 library (dygraphs)
@@ -282,7 +282,7 @@ library(readxl)
 
 
 
-df <- read_excel("C:\\R\\data\\YearlyAvgTemp_pivot2.xlsx", 1)
+df <- read_excel("data/YearlyAvgTemp_pivot2.xlsx", 1)
 
 
 widget3 <- dygraph(df, main = "Yearly Average Temperature of Long Island Sound") %>%
@@ -302,11 +302,11 @@ widget3
 <brk>
 <brk>
 These three graphs show the measured bottom and surface water temperatures at stations representative of the Western (Station A4), Central (Station E1) and Eastern Sound (Station M3) for each survey conducted in 2024. The graphs are interactive. Use the slider at the bottom to zoom to a time period. You can also use the mouse to click and zoom. 
-```{r, fig.width=7, fig.height=3.0}
+```{r, fig.width=7, fig.height=3.0, fig.cap = '<i> Interactive map of surface and bottom water temperatures measured during CT DEEP water quality cruises at Station A4 in Western Long Island Sound. Scroll over the data points to see values. Use the slider to zoom to a particular time period.  </i>'}
 library (dygraphs)
 library (readxl)
 
-df <- read_excel("C:\\R\\data\\YearlyAvgTemp_pivot2.xlsx", 2)
+df <- read_excel("data/YearlyAvgTemp_pivot2.xlsx", 2)
 ##B3temps <- cbind(BTemp, STemp)
 
 widget1 <- dygraph(df, main = "Water Temperature at Station A4") %>%
@@ -326,7 +326,7 @@ widget1
 library (dygraphs)
 library (readxl)
 
-df <- read_excel("C:\\R\\data\\YearlyAvgTemp_pivot2.xlsx", 3)
+df <- read_excel("data/YearlyAvgTemp_pivot2.xlsx", 3)
 
 
 widget2 <- dygraph(df, main = "Water Temperature at Station E1") %>%
@@ -345,7 +345,7 @@ widget2
 
 ```
 
-```{r, fig.width=7, fig.height=3.0}
+```{r, fig.width=7, fig.height=3.0, , fig.cap = '<i> Interactive map of surface and bottom water temperatures measured during CT DEEP water quality cruises at Station E1 in Central Long Island Sound. Scroll over the data points to see values. Use the slider to zoom to a particular time period.  </i>'}
 
 library(tidyverse)
 library(fs)
@@ -353,7 +353,7 @@ library(readxl)
 
 
 
-df <- read_excel("C:\\R\\data\\YearlyAvgTemp_pivot2.xlsx", 4)
+df <- read_excel("data/YearlyAvgTemp_pivot2.xlsx", 4)
 
 
 widget4 <- dygraph(df, main = "Water Temperature at Station M3") %>%
@@ -415,7 +415,9 @@ Avg_plot <- ggplot (data=MovAvg)+
   geom_point(aes (x=Year, y=Duration), color= "black")+
   geom_line(aes(x=Year, y=FiveYearAvg),color= "green", size=2)+ 
   labs(title= "Maximum Area and Duration of Hypoxia", subtitle= "1987-2024 (June-September)")+
-      theme(title= element_blank())
+      theme(title= element_blank())+
+      theme(plot.title = element_text(hjust=0))+
+      theme(plot.title = element_text(lineheight = 0))
 
 Avg_plot2<-Avg_plot+ annotation_raster(logo, ymin = 350,ymax= 400,xmin = 2005,xmax = 2025)  
     
@@ -590,7 +592,7 @@ library (plotly)
 library (ggplot2)
 library(readxl)
 
-freq_94_24 <- read_excel("C:\\R\\data\\freq_94_24.xlsx")
+freq_94_24 <- read_excel("data/freq_94_24.xlsx")
 
 Station_Name <- factor (freq_94_24$STATION_NAME, levels = c("A1", "A2M", "A3", "A4", "H-A3", "H-B", "A5", "H-C1", "H-C", "B1S", "B2", "B3", "B4", "01", "02", "C1", "03", "04", "05", "C2", "06", "07", "08", "D3", "10", "09", "E1", "14", "15", "12", "13", "16", "F2", "F3", "18", "19", "20", "22", "21", "H2", "23", "H4", "H6", "25", "26", "27", "28", "29", "30", "31", "I2", "33", "J2", "K2", "M3"))
 
@@ -627,13 +629,13 @@ Marine life and coastal communities are impacted by coastal acidification in a n
 
 In 2023, CTDEEP began monitoring three parameters across LIS to characterize the carbonate system: total alkalinity, dissolved inorganic carbon, and spectrophotometric pH. Ten (10) stations are sampled on a monthly basis. Samples are collected from 2 meters below the surface (surface) and 5 meters above the sediment (bottom). The sampling builds upon [earlier studies](https://www.frontiersin.org/journals/marine-science/articles/10.3389/fmars.2024.1398087/full) by the Vlahos Lab at the University of Connecticut. Preliminary data from 2023 and 2024 are presented below.  
 
-```{r, echo=FALSE}
+```{r, echo=FALSE, fig.cap = '<i> Interactive map of preliminary surface and bottom Total Alkalinity across Long Island Sound during CTDEEP surveys 2023-2024. Scroll over the data points to see values.</i>'}
 
 library(readxl)
 library (plotly)
 library (ggplot2)
  
-test <- read_excel("C:\\R\\data\\ALk_2022_2024_OA_allmonths_KAO.xlsx")
+test <- read_excel("data/ALk_2022_2024_OA_allmonths_KAO.xlsx")
 
  StationN <- factor(test$FieldID, levels = c("A4", "C1", "D3", "9", "E1", "15", "F2", "H4", "I2", "K2"))
 
@@ -663,14 +665,14 @@ gp
 ```
 
 
-```{r}
+```{r, fig.cap = '<i> Interactive map of preliminary surface and bottom spectrophotometric pH across Long Island Sound during CTDEEP surveys 2023-2024. Scroll over the data points to see values. </i>'}
 library(ggplot2)
 
 library(readxl)
 
  
 
-test <- read_excel("C:\\R\\data\\Spec_pH_2022_2024_OA_allmonths_KAO.xlsx")
+test <- read_excel("data/Spec_pH_2022_2024_OA_allmonths_KAO.xlsx")
 
  StationN <- factor(test$FieldID, levels = c("A4", "C1", "D3", "9", "E1", "15", "F2", "H4", "I2", "K2"))
 
@@ -696,7 +698,7 @@ gp
           
 ```
 
-```{r, echo=FALSE, fig.cap = '<i> Preliminary Total Alkalinity, Dissolved Inorganic Carbon, and Spectrophotometric pH during CTDEEP surveys 2023-2024</i>'}
+```{r, echo=FALSE, fig.cap = '<i> Interactive map of preliminary Dissolved Inorganic Carbon across Long Island Sound during CTDEEP surveys 2023-2024 </i>'}
 
 library(ggplot2)
 library (plotly)
@@ -704,7 +706,7 @@ library(readxl)
 
  
 
-test <- read_excel("C:\\R\\data\\DIC_2022_2024_OA_allmonths_KAO.xlsx")
+test <- read_excel("data/DIC_2022_2024_OA_allmonths_KAO.xlsx")
 
  StationN <- factor(test$FieldID, levels = c("A4", "C1", "D3", "9", "E1", "15", "F2", "H4", "I2", "K2"))
 
@@ -835,7 +837,7 @@ list(dt1) %>%
 <brk>
 ```{r}
 
-freq_94_24 <- read_excel("C:\\R\\data\\freq_94_24.xlsx")
+freq_94_24 <- read_excel("data/freq_94_24.xlsx")
 list(freq_94_24) %>%
   download_this(
     output_name = "Frequency of Hypoxia dataset",
@@ -850,10 +852,10 @@ list(freq_94_24) %>%
 <brk>
 
 ```{r}
-avgtmp <- read_excel("C:\\R\\data\\YearlyAvgTemp_pivot2.xlsx", 1)
-a4 <- read_excel("C:\\R\\data\\YearlyAvgTemp_pivot2.xlsx", 2)
-e1 <- read_excel("C:\\R\\data\\YearlyAvgTemp_pivot2.xlsx", 3)
-m3 <- read_excel("C:\\R\\data\\YearlyAvgTemp_pivot2.xlsx", 4)
+avgtmp <- read_excel("data/YearlyAvgTemp_pivot2.xlsx", 1)
+a4 <- read_excel("data/YearlyAvgTemp_pivot2.xlsx", 2)
+e1 <- read_excel("data/YearlyAvgTemp_pivot2.xlsx", 3)
+m3 <- read_excel("data/YearlyAvgTemp_pivot2.xlsx", 4)
 
 
 list("AvgTmp"=avgtmp, "A4"=a4, "E1"=e1, "M3"=m3) %>%
@@ -870,7 +872,7 @@ list("AvgTmp"=avgtmp, "A4"=a4, "E1"=e1, "M3"=m3) %>%
 <brk>
 <brk>
 ```{r}
-Alkalinity <- read_excel("C:\\R\\data\\ALk_2022_2024_OA_allmonths_KAO.xlsx")
+Alkalinity <- read_excel("data/ALk_2022_2024_OA_allmonths_KAO.xlsx")
 
 list(Alkalinity) %>%
   download_this(
@@ -886,7 +888,7 @@ list(Alkalinity) %>%
 <brk>
 <brk>
 ```{r}
-DIC <- read_excel("C:\\R\\data\\DIC_2022_2024_OA_allmonths_KAO.xlsx")
+DIC <- read_excel("data/DIC_2022_2024_OA_allmonths_KAO.xlsx")
 
 list(DIC) %>%
   download_this(
@@ -902,7 +904,7 @@ list(DIC) %>%
 <brk>
 <brk>
 ```{r}
-pH <- read_excel("C:\\R\\data\\Spec_pH_2022_2024_OA_allmonths_KAO.xlsx")
+pH <- read_excel("data/Spec_pH_2022_2024_OA_allmonths_KAO.xlsx")
 
 list(pH) %>%
   download_this(
@@ -929,7 +931,7 @@ list(pH) %>%
 
 <a href="https://www.iec-nynjct.org/programs/water/sound-monitoring"><img src = "https://www.iec-nynjct.org/sites/default/files/IEClogo.png"  alt = "IEC Logo" width="188" height="100"></a> 
 
-<!-- [**Interstate Environmental Commision**](https://www.iec-nynjct.org/programs/water/sound-monitoring) -->
+<!-- [**Interstate Environmental Commission**](https://www.iec-nynjct.org/programs/water/sound-monitoring) -->
 
 <a href="https://longislandsoundstudy.net/"><img src = "images/liss-logo.png"  alt = "LISS Logo" width="110" height="100"></a>
 
@@ -951,10 +953,23 @@ This Project was funded by the United States Environmental Protection Agency, Lo
 ## **References**
 <hr>
 
+*Howell, Penelope and Peter J. Auster. 2012. Phase Shift in an Estuarine Finfish Community Associated with Warming Temperatures. Marine and Coastal Fisheries: Dynamics, Management, and Ecosystem Science 4:481–495, 2012. DOI: 10.1080/19425120.2012.685144.*
+
+*Georgas, Nickitas, Lun Yin, Yu Jiang, Yifan Wang, Penelope Howell, Vincent Saba, Justin Schulte, Philip Orton, and Bin Wen. 2016. An Open-Access, Multi-Decadal, Three-Dimensional,Hydrodynamic Hindcast Dataset for the Long Island Sound and New York/New Jersey Harbor Estuaries. Journal of Marine Science and Engineering. 4(3):48. doi:10.3390/jmse4030048. www.mdpi.com/journal/jmse. *
+
 *O'Donnell, J., Fake, T., and J. O'Donnell. 2020. Computing the Hypoxic Volume of Long Island Sound- Final Report, September 12, 2020. University of Connecticut, Department of Marine Sciences, Groton, CT. Prepared for the Connecticut Department of Energy and Environmental Protection and the Long Island Sound Study*
+
+*Rice, Edward and Gillian Stewart. 2013. Analysis of interdecadal trends in chlorophyll and temperature in the Central Basin of Long Island Sound. Estuarine, Coastal and Shelf Science. 128: 64-75, ISSN 0272-7714, https://doi.org/10.1016/j.ecss.2013.05.002.*
 
 *Simpson, D. G., Gottschall, K., and Johnson, M. 1995. Cooperative interagency resource assessment (Job 5). In: A study of marine recreational fisheries in Connecticut, CT DEP Marine Fisheries Office, PO Box 719, Old Lyme, CT 06371, p. 87-135.*
 
 *Simpson, D.G., Gottschall, K., and Johnson, M. 1996. Cooperative interagency resource assessment (Job 5). In: A study of marine recreational fisheries in Connecticut, CT DEP Marine Fisheries Office, PO Box 719, Old Lyme, CT 06371, p. 99-122.*
+
+
+
+
+
+
+
 
 
