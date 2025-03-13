@@ -939,7 +939,7 @@ list(pH) %>%
 
 <!-- [**Long Island Sound Study**](https://longislandsoundstudy.net/) -->
 
-<a href="https://https://lisicos.uconn.edu/index.php"><img src = "images/buoy.jpg"  alt = "LISICOS Logo" width="110" height="100"></a>
+<a href="https://lisicos.uconn.edu/index.php"><img src = "images/buoy.jpg"  alt = "LISICOS Logo" width="310" height="100"></a>
 
 **Report Prepared by:** <br>
 Katie O'Brien-Clayton, CT DEEP <br>
