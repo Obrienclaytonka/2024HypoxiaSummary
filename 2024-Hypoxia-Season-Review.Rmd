@@ -270,7 +270,7 @@ geom_hline(yintercept = -1.5, size=0.1)+
 ## **Water Temperature**
 <hr>
 
-Long Island Sound Water Temperatures have generally been increasing over the 30+ years of the survey (Howell and Auster, 2012; Rice and Stewart, 2013; O'Donnell, et. al., 2020; and Georgas, et. al., 2016). This year, temperatures were actually lower than they have been the past four years.  The interactive graph below shows the yearly average water temperature across Long Island Sound.  
+Long Island Sound water temperatures have generally been increasing over the 30+ years of the survey (Howell and Auster, 2012; Rice and Stewart, 2013; O'Donnell, et. al., 2020; and Georgas, et. al., 2016). This year, temperatures were actually lower than they have been the past four years.  The interactive graph below shows the yearly average water temperature across Long Island Sound.  
 
 ```{r, fig.cap = '<i> Interactive map of average annual surface and bottom water temperatures measured in Long Island Sound. Scroll over the data points to see values. Use the slider to zoom to a particular time period.  </i>'}
 
@@ -301,7 +301,7 @@ widget3
 ```
 <brk>
 <brk>
-These three graphs show the measured bottom and surface water temperatures at stations representative of the Western (Station A4), Central (Station E1) and Eastern Sound (Station M3) for each survey conducted in 2024. The graphs are interactive. Use the slider at the bottom to zoom to a time period. You can also use the mouse to click and zoom. 
+These three graphs show the measured bottom and surface water temperatures at stations representative of the Western (Station A4), Central (Station E1) and Eastern Sound (Station M3) over the station's period of record (1991/1994-2024). The graphs are interactive. Use the slider at the bottom to zoom to a time period. You can also use the mouse to click and zoom. 
 ```{r, fig.width=7, fig.height=3.0, fig.cap = '<i> Interactive map of surface and bottom water temperatures measured during CT DEEP water quality cruises at Station A4 in Western Long Island Sound. Scroll over the data points to see values. Use the slider to zoom to a particular time period.  </i>'}
 library (dygraphs)
 library (readxl)
@@ -322,7 +322,9 @@ widget1 <- dygraph(df, main = "Water Temperature at Station A4") %>%
 widget1
 
 ```
-```{r, fig.width=7, fig.height=3.0}
+
+
+```{r, fig.width=7, fig.height=3.0, fig.cap = '<i> Interactive map of surface and bottom water temperatures measured during CT DEEP water quality cruises at Station E1 in Central Long Island Sound. Scroll over the data points to see values. Use the slider to zoom to a particular time period.  </i>'}
 library (dygraphs)
 library (readxl)
 
@@ -345,7 +347,7 @@ widget2
 
 ```
 
-```{r, fig.width=7, fig.height=3.0, , fig.cap = '<i> Interactive map of surface and bottom water temperatures measured during CT DEEP water quality cruises at Station E1 in Central Long Island Sound. Scroll over the data points to see values. Use the slider to zoom to a particular time period.  </i>'}
+```{r, fig.width=7, fig.height=3.0, fig.cap = '<i> Interactive map of surface and bottom water temperatures measured during CT DEEP water quality cruises at Station M3 in Eastern Long Island Sound. Scroll over the data points to see values. Use the slider to zoom to a particular time period.  </i>'}
 
 library(tidyverse)
 library(fs)
@@ -397,7 +399,7 @@ The LISS utilizes a five-year rolling average (Figure 4) to determine progress t
 
 
 <div class = 'iplot'>
-```{r, fig.cap = '<i>This interactive graph shows the maximum area of hypoxia in square miles (blue bars), duration of hypoxic conditions in days (black circles), and the five-year rolling average area in square miles (green line). </i>'}
+```{r, out.width="90%", fig.align = 'center', fig.cap = '<i>This interactive graph shows the maximum area of hypoxia in square miles (blue bars), duration of hypoxic conditions in days (black circles), and the five-year rolling average area in square miles (green line). </i>'}
 ##install.packages("png")
 
 library(ggplot2)
@@ -414,10 +416,10 @@ Avg_plot <- ggplot (data=MovAvg)+
   geom_col(aes(x=Year, y=Area), fill="blue")+
   geom_point(aes (x=Year, y=Duration), color= "black")+
   geom_line(aes(x=Year, y=FiveYearAvg),color= "green", size=2)+ 
-  labs(title= "Maximum Area and Duration of Hypoxia", subtitle= "1987-2024 (June-September)")+
-      theme(title= element_blank())+
-      theme(plot.title = element_text(hjust=0))+
-      theme(plot.title = element_text(lineheight = 0))
+  labs(title= "Maximum Area and Duration of Hypoxia \n 1987-2024 (June-September)")+
+  theme(title= element_blank())+
+  theme(plot.title = element_text(hjust=0))+
+  theme(plot.title = element_text(lineheight = 0))
 
 Avg_plot2<-Avg_plot+ annotation_raster(logo, ymin = 350,ymax= 400,xmin = 2005,xmax = 2025)  
     
