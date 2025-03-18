@@ -939,7 +939,7 @@ list(pH) %>%
 
 <!-- [**Long Island Sound Study**](https://longislandsoundstudy.net/) -->
 
-<a href="https://lisicos.uconn.edu/index.php"><img src = "images/buoy.jpg"  alt = "LISICOS Logo" width="310" height="100"></a>
+<a href="https://lisicos.uconn.edu/index.php"><img src = "images/uconn_lisicos_hdr.png"  alt = "LISICOS Logo" width="310" height="100"></a>
 
 **Report Prepared by:** <br>
 Katie O'Brien-Clayton, CT DEEP <br>
@@ -955,9 +955,9 @@ This Project was funded by the United States Environmental Protection Agency, Lo
 ## **References**
 <hr>
 
-*Howell, Penelope and Peter J. Auster. 2012. Phase Shift in an Estuarine Finfish Community Associated with Warming Temperatures. Marine and Coastal Fisheries: Dynamics, Management, and Ecosystem Science 4:481–495, 2012. DOI: 10.1080/19425120.2012.685144.*
-
 *Georgas, Nickitas, Lun Yin, Yu Jiang, Yifan Wang, Penelope Howell, Vincent Saba, Justin Schulte, Philip Orton, and Bin Wen. 2016. An Open-Access, Multi-Decadal, Three-Dimensional,Hydrodynamic Hindcast Dataset for the Long Island Sound and New York/New Jersey Harbor Estuaries. Journal of Marine Science and Engineering. 4(3):48. doi:10.3390/jmse4030048. www.mdpi.com/journal/jmse. *
+
+*Howell, Penelope and Peter J. Auster. 2012. Phase Shift in an Estuarine Finfish Community Associated with Warming Temperatures. Marine and Coastal Fisheries: Dynamics, Management, and Ecosystem Science 4:481–495, 2012. DOI: 10.1080/19425120.2012.685144.*
 
 *O'Donnell, J., Fake, T., and J. O'Donnell. 2020. Computing the Hypoxic Volume of Long Island Sound- Final Report, September 12, 2020. University of Connecticut, Department of Marine Sciences, Groton, CT. Prepared for the Connecticut Department of Energy and Environmental Protection and the Long Island Sound Study*
 
